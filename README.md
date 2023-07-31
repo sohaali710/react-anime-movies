@@ -1,4 +1,4 @@
 ## React Anime Movies
-Run the project live using the following link:
+Run the app live:
 
 https://react-anime-movies777.netlify.app/
