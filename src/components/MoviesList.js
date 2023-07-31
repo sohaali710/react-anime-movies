@@ -3,7 +3,7 @@ import MovieItem from './MovieItem'
 import { Col, Container, Row } from 'react-bootstrap';
 import Pagination from './Pagination';
 
-const MoviesList = ({ movies }) => {
+const MoviesList = ({ movies, getPage, pageCount }) => {
     return (
         <Container className='my-5'>
             <Row>
@@ -23,7 +23,7 @@ const MoviesList = ({ movies }) => {
             </Row>
             <Row>
                 <Col>
-                    <Pagination />
+                    <Pagination getPage={getPage} pageCount={pageCount} />
                 </Col>
             </Row>
         </Container>

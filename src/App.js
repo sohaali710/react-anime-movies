@@ -15,20 +15,29 @@ const searchURL = baseLink + '/search' + path + APIKey;
 
 function App() {
   const [movies, setMovies] = useState([])
+  const [pageCount, setPageCount] = useState([])
 
   const getAllMovies = async () => {
     const res = await axios.get(allMoviesURL)
     setMovies(res.data.results)
+    setPageCount(res.data.total_pages)
   }
 
   useEffect(() => {
     getAllMovies()
   }, [])
 
+  // get current page with pagination
+  const getPage = async (page) => {
+    const res = await axios.get(`${allMoviesURL}&page=${page}`)
+    setMovies(res.data.results)
+  }
+
   const search = async (word) => {
     if (word) {
       const res = await axios.get(`${searchURL}&query=${word}`)
       setMovies(res.data.results)
+      setPageCount(res.data.total_pages)
     } else {
       getAllMovies()
     }
@@ -39,7 +48,7 @@ function App() {
       <Navbar search={search} />
 
       <Routes>
-        <Route path="/" element={<MoviesList movies={movies} />}></Route>
+        <Route path="/" element={<MoviesList movies={movies} getPage={getPage} pageCount={pageCount} />}></Route>
         <Route path="/movie/:id" element={<MovieDetails />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
