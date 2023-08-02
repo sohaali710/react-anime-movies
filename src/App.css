@@ -30,7 +30,7 @@ body {
 }
 
 /* MoviesList */
-.card {
+.movieItemCard {
   max-height: 83vh;
   width: 19rem;
 
@@ -39,13 +39,13 @@ body {
   transition: all .5s ease;
 }
 
-.card:hover {
+.movieItemCard:hover {
   box-shadow: 5px 5px 15px rgb(235, 235, 235);
   transform: scale(1.04, 1.04);
   filter: blur(0px);
 }
 
-.card .movieItemImg {
+.movieItemCard .movieItemImg {
   max-height: 54vh;
 }
 
@@ -62,4 +62,40 @@ body {
   background-color: var(--custom-green) !important;
   border: var(--custom-green);
   box-shadow: 0 0 0 0.25rem var(--custom-light-green);
+}
+
+/* movieDetails page */
+.movieDetailsCard {
+  max-height: 100vh !important;
+  padding: 10px;
+
+  box-shadow: 5px 5px 15px rgb(235, 235, 235);
+}
+
+.movieDetailsCard img {
+  max-height: 390px !important;
+}
+
+.movieDetailsCard .card-title {
+  font-size: 36px;
+  font-weight: 700;
+
+  text-align: left;
+}
+
+.movieDetailsCard .card-text {
+  font-size: 20px;
+
+  text-align: left;
+}
+
+.movieDetailsCard h5 {
+  text-align: left;
+}
+
+.movieDetailsCard .btn {
+  margin-left: 16px;
+
+  font-size: 18px;
+  font-weight: 500;
 }

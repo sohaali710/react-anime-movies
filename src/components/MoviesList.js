@@ -21,11 +21,14 @@ const MoviesList = ({ movies, getPage, pageCount }) => {
                         )
                 }
             </Row>
-            <Row>
-                <Col>
-                    <Pagination getPage={getPage} pageCount={pageCount} />
-                </Col>
-            </Row>
+            {
+                movies.length !== 0 &&
+                <Row>
+                    <Col>
+                        <Pagination getPage={getPage} pageCount={pageCount} />
+                    </Col>
+                </Row>
+            }
         </Container>
     )
 }

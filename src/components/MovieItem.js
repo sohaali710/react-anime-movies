@@ -7,7 +7,7 @@ const imgUrl = "https://image.tmdb.org/t/p/w600_and_h900_bestv2";
 const MovieItem = ({ movie }) => {
     const { id, title, overview, poster_path } = movie
     return (
-        <Card className='m-auto bg-light' as={Link} to={`/movie/${id}`}>
+        <Card className='m-auto bg-light movieItemCard' as={Link} to={`/movie/${id}`}>
             <Card.Img variant="top" src={imgUrl + poster_path}
                 className='rounded rounded-bottom-0 img-fluid movieItemImg' />
             <Card.Body>
