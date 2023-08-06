@@ -1,9 +1,16 @@
-## React Anime Movies
+# React Anime Movies
 Run the app live:
 
 https://react-anime-movies777.netlify.app/
 
-It contains :
+##### Using :
+- React with hooks
+- React router
+- Redux toolkit
+- Axios
+
+
+##### It contains :
 - Movies list page with:
   - Search 
   - Pagination to switch between pages
