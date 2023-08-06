@@ -1,5 +1,5 @@
 # React Anime Movies
-Run the app live:
+App live demo :
 
 https://react-anime-movies777.netlify.app/
 
