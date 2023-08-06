@@ -7,6 +7,7 @@ It contains :
 - Movies list page with:
   - Search 
   - Pagination to switch between pages
+  - Spinner to load unit data arrives
 - Page to show movie details
 
 
