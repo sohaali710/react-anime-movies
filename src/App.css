@@ -18,6 +18,7 @@ body {
 
 .navbar .navbar-brand {
   font-family: 'Handjet', cursive;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -98,4 +99,18 @@ body {
 
   font-size: 18px;
   font-weight: 500;
+}
+
+/* Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 50vh;
+}
+
+.spinner-container .spinner-border {
+  width: 4rem !important;
+  height: 4rem !important;
 }

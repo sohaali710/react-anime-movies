@@ -2,14 +2,26 @@ import React from 'react'
 
 import { Nav, Navbar as NavbarBs, Form, Container } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom/dist/umd/react-router-dom.development';
-import brandIcon from '../assets/icons/video-solid.svg'
+import brandIcon from '../../assets/icons/video-solid.svg'
+import { useDispatch } from 'react-redux';
+import { getAllMovies, pageMovies, searchMovies, setLoading } from '../../actions/moviesAction';
 
-const Navbar = ({ search }) => {
-    const onSearch = (word) => {
-        search(word)
-    }
-
+const Navbar = () => {
     const { pathname } = useLocation()
+
+    const dispatch = useDispatch()
+
+    const onSearch = (word) => {
+        dispatch(setLoading())
+        dispatch(pageMovies(1)) //on search reset the pagination to page number one
+
+        if (word) {
+            dispatch(searchMovies(word))
+        }
+        else {
+            dispatch(getAllMovies())
+        }
+    }
 
     return (
         <NavbarBs expand="lg">

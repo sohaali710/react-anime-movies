@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MovieItem from './MovieItem'
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import Pagination from './Pagination';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllMovies, setLoading } from '../actions/moviesAction';
 
-const MoviesList = ({ movies, getPage, pageCount }) => {
+const MoviesList = () => {
+    const [movies, setMovies] = useState([])
+
+    const dispatch = useDispatch()
+    const { movies: moviesData, loading } = useSelector(state => state)
+    useEffect(() => {
+        dispatch(setLoading())
+        dispatch(getAllMovies())
+    }, [])
+
+    useEffect(() => {
+        setMovies(moviesData)
+    }, [moviesData])
+
     return (
         <Container className='my-5'>
             <Row>
                 {
-                    movies.length === 0 ?
-                        <h2>There is no movies</h2>
+                    loading ?
+                        (
+                            <Col className='spinner-container mb-4'>
+                                <Spinner animation="border" variant='success' />
+                            </Col>
+                        )
                         : (
                             movies.map(movie => {
                                 return (
@@ -23,11 +42,13 @@ const MoviesList = ({ movies, getPage, pageCount }) => {
             </Row>
             {
                 movies.length !== 0 &&
-                <Row>
-                    <Col>
-                        <Pagination getPage={getPage} pageCount={pageCount} />
-                    </Col>
-                </Row>
+                (
+                    <Row>
+                        <Col>
+                            <Pagination />
+                        </Col>
+                    </Row>
+                )
             }
         </Container>
     )
