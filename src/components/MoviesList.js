@@ -9,7 +9,8 @@ const MoviesList = () => {
     const [movies, setMovies] = useState([])
 
     const dispatch = useDispatch()
-    const { movies: moviesData, loading } = useSelector(state => state)
+    const moviesData = useSelector(state => state.movies)
+    const loading = useSelector(state => state.loading)
     useEffect(() => {
         dispatch(setLoading())
         dispatch(getAllMovies())

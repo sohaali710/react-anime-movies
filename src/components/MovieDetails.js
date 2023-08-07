@@ -11,7 +11,8 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState({})
 
     const dispatch = useDispatch()
-    const { movieDetails, loading } = useSelector(state => state)
+    const loading = useSelector(state => state.loading)
+    const movieDetails = useSelector(state => state.movieDetails)
 
     useEffect(() => {
         dispatch(setLoading())
