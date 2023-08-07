@@ -19,6 +19,8 @@ const MoviesList = () => {
         setMovies(moviesData)
     }, [moviesData])
 
+    console.log(movies)
+
     return (
         <Container className='my-5'>
             <Row>
@@ -32,7 +34,8 @@ const MoviesList = () => {
                         : (
                             movies.map(movie => {
                                 return (
-                                    <Col className='mb-4' key={movie.mal_id}>
+                                    <Col className='mb-4' key={movie.id}>
+                                        {/* <Col className='mb-4' key={movie.mal_id}> */}
                                         <MovieItem movie={movie} />
                                     </Col>
                                 )
